@@ -1,6 +1,6 @@
 module Rebay
   class Shopping < Rebay::Api
-    BASE_URL = 'http://open.api.ebay.com/shopping'
+    #BASE_URL = 'http://open.api.ebay.com/shopping'
     VERSION = '677'
     
     #http://developer.ebay.com/DevZone/shopping/docs/CallRef/FindProducts.html
@@ -117,7 +117,7 @@ module Rebay
     
     private
     def build_request_url(service, params=nil)
-      url = "#{BASE_URL}?callname=#{service}&appid=#{Rebay::Api.app_id}&version=#{VERSION}&responseencoding=JSON&siteid=#{Rebay::Api::EBAY_US}"
+      url = "#{Rebay::Api.base_url}?callname=#{service}&appid=#{Rebay::Api.app_id}&version=#{VERSION}&responseencoding=JSON&siteid=#{Rebay::Api::EBAY_US}"
       url += build_rest_payload(params)
       return url
     end

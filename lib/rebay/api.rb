@@ -13,6 +13,14 @@ module Rebay
     def self.app_id
       @@app_id
     end
+
+    def self.base_url= base_url
+      @@base_url = base_url
+    end
+    
+    def self.base_url
+      @@base_url
+    end
       
     def self.configure
       yield self if block_given?
