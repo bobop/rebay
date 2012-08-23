@@ -117,8 +117,9 @@ module Rebay
     
     private
     def build_request_url(service, params=nil)
-      url = "#{Rebay::Api.base_url}?callname=#{service}&appid=#{Rebay::Api.app_id}&version=#{VERSION}&responseencoding=JSON&siteid=#{Rebay::Api::EBAY_US}"
+      url = "#{Rebay::Api.base_url}?callname=#{service}&appid=#{Rebay::Api.app_id}&version=#{VERSION}&responseencoding=JSON&siteid=#{Rebay::Api::EBAY_US}&IncludeSelector=Variations,ItemSpecifics,HighBidder"
       url += build_rest_payload(params)
+      #Rails.logger.info("--- eBay url = #{url}")
       return url
     end
   end
